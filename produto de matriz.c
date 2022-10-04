@@ -1,46 +1,41 @@
 #include <stdio.h>
 #include <locale.h>
 
-int l,c,tam;
-
-void dimensionaMatriz(int linha, int coluna){
-	l=linha;
-	c=coluna;
-	tam=linha*coluna;
+int dimensionaMatriz(int linha, int coluna){
+	return linha*coluna;
 }
 
-void zeraMatriz(int vet[]){
+void zeraMatriz(int vet[],int tamanho){
 	int k;
-	for(k=0;k<tam;k++){
+	for(k=0;k<tamanho;k++){
 		vet[k]=0;
 	}
 }
 
 
-void imprimeMatriz(int vet[], int m, int n){
+void imprimeMatriz(int vet[], int linha, int coluna){
 	int i,j;
-	for(i=0;i<l;i++){
-		for(j=0;j<c;j++){
-			printf("%d\t",vet[i * c + j]);
+	for(i=0;i<linha;i++){
+		for(j=0;j<coluna;j++){
+			printf("%d\t",vet[i * coluna + j]);
 		}
 		printf("\n");
 	}
 }
 
 
-void adicionaElemento(int vet[], int valor, int linha, int coluna){
-	vet[((linha - 1) * c) + (coluna - 1)] = valor;
+void adicionaElemento(int vet[], int valor, int linha, int coluna,int totalColunas){
+	vet[((linha - 1) * totalColunas) + (coluna - 1)] = valor;
 }
 
-int buscaElemento(int vet[], int linha, int coluna){
-	return vet[((linha - 1) * c) + (coluna - 1)];
+int buscaElemento(int vet[], int linha, int coluna,int totalColunas){
+	return vet[((linha - 1) * totalColunas) + (coluna - 1)];
 }
 
-void produto_Matriz( int *vet_1, int *vet_2){
+void produto_Matriz( int *vet_1, int *vet_2,int linha,int coluna){
 	int produto,i,j;
-	++l;
-	for(i=0;i<l;i++){
-		for(j=0;j<c;j++){
+	for(i=0;i<linha;i++){
+		for(j=0;j<coluna;j++){
 			int a=i,b=j;
 			produto = vet_1[a++]*vet_2[b++]+vet_1[b++]*vet_2[a++];
 			printf("%d\t",produto);
@@ -50,19 +45,18 @@ void produto_Matriz( int *vet_1, int *vet_2){
 }
 
 void main(){
-	dimensionaMatriz(3, 2);
-	int vet1[tam];
-	dimensionaMatriz(2, 3);
-	int vet2[tam];
-//	int vet3[tam];
+	
+	int vet1[dimensionaMatriz(3, 2)];
+	int vet2[dimensionaMatriz(2, 3)];
+
 	// zerando
-	zeraMatriz(vet1);
-	zeraMatriz(vet2);
+	zeraMatriz(vet1,dimensionaMatriz(3, 2));
+	zeraMatriz(vet2,dimensionaMatriz(2, 3));
 //	zeraMatriz(vet3);
 	
-	imprimeMatriz(vet1, ++l, --c);
+	imprimeMatriz(vet1, 3, 2);
 	printf("\n");
-	imprimeMatriz(vet2, --l, ++c);
+	imprimeMatriz(vet2, 2, 3);
 	printf("\n");
 //	imprimeMatriz(vet3, l, c);
 //	printf("\n");
