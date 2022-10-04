@@ -19,8 +19,8 @@ void zeraMatriz(int vet[]){
 
 void imprimeMatriz(int vet[], int m, int n){
 	int i,j;
-	for(i=0;i<tam;i++){
-		for(j=0;j<tam;j++){
+	for(i=0;i<l;i++){
+		for(j=0;j<c;j++){
 			printf("%d\t",vet[i * c + j]);
 		}
 		printf("\n");
