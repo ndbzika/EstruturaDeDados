@@ -46,44 +46,44 @@ void produto_Matriz( int *vet_1, int *vet_2,int linha,int coluna){
 
 void main(){
 	
-	int vet1[dimensionaMatriz(3, 2)];
-	int vet2[dimensionaMatriz(2, 3)];
+	int x=3,y=2;
+	
+	int vet1[dimensionaMatriz(x, y)];
+	int vet2[dimensionaMatriz(y, x)];
 
 	// zerando
-	zeraMatriz(vet1,dimensionaMatriz(3, 2));
-	zeraMatriz(vet2,dimensionaMatriz(2, 3));
+	zeraMatriz(vet1,dimensionaMatriz(x, y));
+	zeraMatriz(vet2,dimensionaMatriz(y, x));
 //	zeraMatriz(vet3);
 	
-	imprimeMatriz(vet1, 3, 2);
+	imprimeMatriz(vet1, x, y);
 	printf("\n");
-	imprimeMatriz(vet2, 2, 3);
+	imprimeMatriz(vet2, y, x);
 	printf("\n");
-//	imprimeMatriz(vet3, l, c);
-//	printf("\n");
 	
 	getch();
 	// montando
-	adicionaElemento(vet1, 2, 1, 1);
-	adicionaElemento(vet1, 1, 1,2);
-	adicionaElemento(vet1, 0, 2, 1);
-	adicionaElemento(vet1, 3, 2, 2);
-	adicionaElemento(vet1, 1, 3, 1);
-	adicionaElemento(vet1, 1, 3, 2);
+	adicionaElemento(vet1, 2, 1, 1, y);
+	adicionaElemento(vet1, 1, 1,2, y);
+	adicionaElemento(vet1, 0, 2, 1, y);
+	adicionaElemento(vet1, 3, 2, 2, y);
+	adicionaElemento(vet1, 1, 3, 1, y);
+	adicionaElemento(vet1, 1, 3, 2, y);
 	printf("Matriz 1: \n");
-	imprimeMatriz(vet1, ++l, --c);
+	imprimeMatriz(vet1, x, y);
 	getch();
 	
-	adicionaElemento(vet2, 0, 1, 1);
-	adicionaElemento(vet2, 2, 2, 1);
-	adicionaElemento(vet2, 3, 1, 2);
-	adicionaElemento(vet1, 1, 2, 2);
-	adicionaElemento(vet1, 3, 1, 3);
-	adicionaElemento(vet1, 1, 2, 3);
+	adicionaElemento(vet2, 0, 1, 1, x);
+	adicionaElemento(vet2, 2, 2, 1, x);
+	adicionaElemento(vet2, 3, 1, 2, x);
+	adicionaElemento(vet1, 1, 2, 2, x);
+	adicionaElemento(vet1, 3, 1, 3, x);
+	adicionaElemento(vet1, 1, 2, 3, x);
 	printf("Matriz 2: \n");
-	imprimeMatriz(vet2, --l, ++c);
+	imprimeMatriz(vet2, y, x);
 	printf("\n");
 	getch();
 	
-	produto_Matriz(vet1,vet2);
+	produto_Matriz(vet1,vet2,x,x);
 	getch();
 	}
