@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<locale.h>
 
-int l,c,tam;
+int l,c,tam; int memama;
 
 void dimensionaMatriz(int linha, int coluna){
 	l=linha;
